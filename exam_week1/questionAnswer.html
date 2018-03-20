@@ -1,0 +1,659 @@
+<!DOCTYPE html><html>
+
+<head>
+<meta charset="utf-8">
+<title>questionAnswer</title>
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+</head>
+<body>
+<h2 id="toc_0">Q0: 基础实验环境说明：</h2>
+
+<p>(1) 操作系统:CentOS6.5 VMWare虚拟机环境 </p>
+
+<pre><code class="language-shell">➜  examUse  tree ./
+./
+├── elephaht_examhos
+│   ├── Enmoedu_Hadoop_CentOS_6.5_CDH_5.6.vmdk
+│   └── Enmoedu_Hadoop_CentOS_6.5_CDH_5.6.vmx
+└── monkey_exam
+    ├── Enmoedu_Hadoop_CentOS_6.5_CDH_5.6.vmdk
+    └── Enmoedu_Hadoop_CentOS_6.5_CDH_5.6.vmx</code></pre>
+
+<p>(2) 局域网环境，网卡设置为桥接模式，主从两节点(elephant/monkey)</p>
+
+<pre><code class="language-shell">[enmoedu@bogon ~]$ hostname
+elephant
+[enmoedu@bogon ~]$ ifconfig | grep 10
+          inet addr:10.8.2.157  Bcast:10.8.2.255  Mask:255.255.255.0
+          collisions:0 txqueuelen:1000 
+          RX packets:10 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:10 errors:0 dropped:0 overruns:0 carrier:0
+          
+[enmoedu@bogon ~]$ hostname
+monkey
+[enmoedu@bogon ~]$ ifconfig | grep 10
+          inet addr:10.8.2.168  Bcast:10.8.2.255  Mask:255.255.255.0
+          collisions:0 txqueuelen:1000 </code></pre>
+
+<p>(3) 关闭主从节点的防火墙和<code>SELinux</code></p>
+
+<p><strong>以下所有操作默认使用<code>su</code>切换到<code>root</code>用户</strong></p>
+
+<pre><code class="language-shell"># change to root user
+[root@elephant enmoedu]# service iptables stop
+iptables: Setting chains to policy ACCEPT: filter          [  OK  ]
+iptables: Flushing firewall rules:                         [  OK  ]
+iptables: Unloading modules:                               [  OK  ]
+
+# edit selinux configure file
+[root@elephant enmoedu]# vim /etc/selinux/config
+
+# change `enforcing` to `disabled`
+SELINUX=disabled</code></pre>
+
+<p><img src="/Users/diggzhang/code/big_data_on_my_way/exam_week1/imgs/qa00_selinux_iptables_off.png" alt=""></p>
+
+<p>设置关闭防火墙和SELinux的行为永久生效：</p>
+
+<pre><code class="language-shell"># shutdown selinux forever
+[root@monkey enmoedu]# setenforce 0
+
+# deny iptables restart when system reboot
+[root@monkey enmoedu]# chkconfig iptables off
+
+# check iptables setting
+[root@monkey enmoedu]# chkconfig --list | grep iptables
+iptables        0:关闭    1:关闭    2:关闭    3:关闭    4:关闭    5:关闭    6:关闭
+[root@monkey enmoedu]#</code></pre>
+
+<p><img src="/Users/diggzhang/code/big_data_on_my_way/exam_week1/imgs/qa00_shutdown_selinux_iptables_forever.png" alt=""></p>
+
+<h2 id="toc_1">Q1. 查看Linux操作系统kernel 版本参考命令</h2>
+
+<ul>
+<li><code>uname -a</code> 显示系统信息一般习惯使用<code>uname</code>指令 ,<code>2.6.32-431.el6.x86_64</code>便是系统内核版本号</li>
+</ul>
+
+<pre><code class="language-shell">[enmoedu@monkey ~]$ uname -a
+Linux monkey 2.6.32-431.el6.x86_64 #1 SMP Fri Nov 22 03:15:09 UTC 2013 x86_64 x86_64 x86_64 GNU/Linux</code></pre>
+
+<ul>
+<li><code>/proc/version</code>文件里也可以查阅到内核版本号</li>
+</ul>
+
+<pre><code class="language-shell">[enmoedu@monkey ~]$ cat /proc/version
+Linux version 2.6.32-431.el6.x86_64 (mockbuild@c6b8.bsys.dev.centos.org) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-4) (GCC) ) #1 SMP Fri Nov 22 03:15:09 UTC 2013</code></pre>
+
+<h2 id="toc_2">Q2. 在 Linux 操作系统上搭建NTP 时间服务器。能够利用 <ntpdate + 时间服务器> 同步主机时间。</h2>
+
+<p>(1) 检查主从节点时间</p>
+
+<pre><code class="language-shell"># date
+2017年 04月 12日 星期三 03:27:10 PDT</code></pre>
+
+<p>(2) 检查主从节点是否安装<code>NTP</code>包</p>
+
+<pre><code class="language-shell">[root@monkey enmoedu]# rpm -qa | grep ntp
+ntp-4.2.6p5-1.el6.centos.x86_64
+fontpackages-filesystem-1.41-1.1.el6.noarch
+ntpdate-4.2.6p5-1.el6.centos.x86_64
+
+# 如果没有发现ntp包，可以尝试使用默认的yum源安装(推荐使用163源)
+# yum install ntp</code></pre>
+
+<p>(3) 检查主从节点<code>NTP</code>服务状态，并启动</p>
+
+<pre><code class="language-shell">[root@monkey enmoedu]# service ntpd status
+ntpd is stopped
+[root@monkey enmoedu]# service ntpd start
+Starting ntpd:                                             [  OK  ]</code></pre>
+
+<p><img src="/Users/diggzhang/code/big_data_on_my_way/exam_week1/imgs/qa02_ntp_service_check.png" alt=""></p>
+
+<p>(4) 设计<code>elephant</code>为主节点，作为时间服务器，<code>monkey</code>从主节点获取时间</p>
+
+<p>将<code>elephant</code>作为ntp server，配置<code>/etc/ntp.conf</code>文件，将<code>server</code> 设置为 <code>127.127.1.0</code> 本地物理时钟地址</p>
+
+<pre><code class="language-shell">[root@elephant enmoedu]# vim /etc/ntp.conf
+server 127.127.1.0</code></pre>
+
+<p>相应的修改<code>monkey</code>的<code>ntp.conf</code>，将<code>server</code>设置成<code>elephant</code>的IP地址:</p>
+
+<pre><code class="language-shell">[root@monkey enmoedu]# vim /etc/ntp.conf
+server 10.8.2.157 ## 主节点的IP地址</code></pre>
+
+<p><img src="/Users/diggzhang/code/big_data_on_my_way/exam_week1/imgs/qa02_ntp_master_slave_ntp_conf.png" alt=""></p>
+
+<p>(5) 重启一下ntpd服务，从节点使用<code>ntpd -p</code> 检查是否从主节点同步时间</p>
+
+<p><code>remote</code>显示成为主节点hostname，说明设置生效</p>
+
+<pre><code class="language-shell">[root@monkey enmoedu]# service ntpd restart
+Shutting down ntpd:                                        [  OK  ]
+Starting ntpd:                                             [  OK  ]
+[root@monkey enmoedu]# ntpq -p
+     remote           refid      st t when poll reach   delay   offset  jitter
+==============================================================================
+ elephant        85.199.214.101   2 u    1   64    1    0.789   29.671   0.000</code></pre>
+
+<p><img src="/Users/diggzhang/code/big_data_on_my_way/exam_week1/imgs/qa02_slave_ntp_recheck.png" alt=""></p>
+
+<p>(6) 使用<code>ntpdate -d elephant</code>同步主从节点时间</p>
+
+<pre><code class="language-shell">[root@monkey enmoedu]# ntpdate -d elephant</code></pre>
+
+<p><img src="/Users/diggzhang/code/big_data_on_my_way/exam_week1/imgs/qa02_sync_ntpdate.png" alt=""></p>
+
+<h2 id="toc_3">Q3. 在 Linux 操作系统上搭建安装服务器，能够利用 yum install命令从安装服务器上下载对应的软件包。</h2>
+
+<p>(0) 检查并配置主从hostname，检查网络是否连通</p>
+
+<pre><code class="language-shell">## 1. check hosts configure
+[root@monkey enmoedu]# cat /etc/hosts
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+10.8.2.157 elephant
+10.8.2.168 monkey
+
+## 2. modify /etc/sysconfig/network configure change `HOSTNAME` fields
+[root@monkey enmoedu]# cat /etc/sysconfig/network
+NETWORKING=yes
+HOSTNAME=monkey
+
+[root@elephant enmoedu]# cat /etc/sysconfig/network
+NETWORKING=yes
+HOSTNAME=elephant
+
+## 3. re-declare hostname (I&#39;ve set it before)
+[root@monkey enmoedu]# hostname monkey
+monkey
+[root@elephant enmoedu]# hostname elephant
+elephant
+
+
+## if reset network that need to restart network service
+# service network restart</code></pre>
+
+<p><img src="/Users/diggzhang/code/big_data_on_my_way/exam_week1/imgs/qa03_check_network.png" alt=""></p>
+
+<p>(1)  主节点检查并启动<code>httpd</code>服务</p>
+
+<p>检查或安装<code>httpd</code>服务</p>
+
+<pre><code class="language-shell">## check httpd package is install or not
+[root@elephant enmoedu]# rpm -qa | grep httpd
+httpd-2.2.15-29.el6.centos.x86_64
+httpd-tools-2.2.15-29.el6.centos.x86_64
+
+## if not install use `yum` default soruce (recommand 163 mirrors)
+[root@elephant enmoedu]# yum install httpd</code></pre>
+
+<p>启动<code>httpd</code></p>
+
+<pre><code class="language-shell">[root@elephant enmoedu]# service httpd status
+httpd is stopped
+[root@elephant enmoedu]# service httpd start
+Starting httpd: httpd: Could not reliably determine the server&#39;s fully qualified domain name, using 10.8.2.157 for ServerName
+                                                           [  OK  ]
+
+设置开启自启动
+[root@elephant enmoedu]# chkconfig httpd on</code></pre>
+
+<p>启动后从节点检查80端口是否可访问apache欢迎页</p>
+
+<p><img src="/Users/diggzhang/code/big_data_on_my_way/exam_week1/imgs/qa03_http_start_service.png" alt=""></p>
+
+<p>(3) 准备测试<code>yum server</code>用的软件包，以<code>CDH</code>套装为例,创建成<code>repo</code></p>
+
+<p>将准备好的<code>CDH</code>包组挪到<code>httpd</code>默认的<code>web</code>目录：</p>
+
+<pre><code class="language-shell">[root@elephant software]# ls
+Cloudera-cdh5  cloudera-manager
+[root@elephant software]# mv Cloudera-cdh5/ /var/www/html/
+[root@elephant software]# mv cloudera-manager/ /var/www/html/
+[root@elephant software]# cd /var/www/html/
+[root@elephant html]# pwd
+/var/www/html
+[root@elephant html]# ls
+Cloudera-cdh5  cloudera-manager</code></pre>
+
+<p>创建<code>repo</code>:</p>
+
+<pre><code class="language-shell">[root@elephant html]# pwd
+/var/www/html
+[root@elephant html]# cd Cloudera-cdh5/; createrepo .
+
+Spawning worker 0 with 118 pkgs
+Workers Finished
+Gathering worker results
+
+Saving Primary metadata
+Saving file lists metadata
+Saving other metadata
+Generating sqlite DBs
+Sqlite DBs complete
+
+[root@elephant html]# pwd
+/var/www/html
+[root@elephant html]# cd cloudera-manager/; createrepo .
+Spawning worker 0 with 7 pkgs
+Workers Finished
+Gathering worker results
+
+Saving Primary metadata
+Saving file lists metadata
+Saving other metadata
+Generating sqlite DBs
+Sqlite DBs complete</code></pre>
+
+<p><img src="/Users/diggzhang/code/big_data_on_my_way/exam_week1/imgs/qa03_createrepo.png" alt=""></p>
+
+<p>(4) 创建yum repo config文件，分发到所有节点</p>
+
+<p>yum的repo配置文件存放于<code>/etc/yum.repos.d</code>,在这里创建<code>repo</code>文件：</p>
+
+<pre><code class="language-shell">[root@elephant yum.repos.d]# pwd
+/etc/yum.repos.d
+[root@elephant yum.repos.d]# ll Cloudera-*
+-rw-r--r--. 1 root root 85 4月  11 21:06 Cloudera-cdh5.repo
+-rw-r--r--. 1 root root 94 4月  11 21:07 Cloudera-manager.repo
+[root@elephant yum.repos.d]# cat Cloudera-*
+[Cloudera-cdh5]
+name=Cloudera-cdh5
+baseurl=http://elephant/Cloudera-cdh5/
+gpgcheck=0
+[Cloudera-manager]
+name=Cloudera-manager
+baseurl=http://elephant/cloudera-manager/
+gpgcheck=0
+[root@elephant yum.repos.d]#</code></pre>
+
+<p>将创建的两个<code>Cloudera Repo</code>文件scp到从节点</p>
+
+<pre><code class="language-shell">[root@elephant yum.repos.d]# scp Cloudera-* root@monkey:/etc/yum.repos.d/
+The authenticity of host &#39;monkey (10.8.2.168)&#39; can&#39;t be established.
+RSA key fingerprint is 46:69:2d:47:1f:7d:69:2b:a4:c9:93:7d:09:25:c3:62.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added &#39;monkey,10.8.2.168&#39; (RSA) to the list of known hosts.
+root@monkey&#39;s password:
+Cloudera-cdh5.repo         100%   85     0.1KB/s   00:00
+Cloudera-manager.repo      100%   94     0.1KB/s   00:00
+[root@elephant yum.repos.d]#</code></pre>
+
+<p>(5) 所有节点同时更新<code>yum cache</code>缓存</p>
+
+<pre><code class="language-shell">[root@elephant yum.repos.d]# pwd
+/etc/yum.repos.d
+[root@elephant yum.repos.d]# ll Cloudera-*
+-rw-r--r--. 1 root root 85 4月  11 21:06 Cloudera-cdh5.repo
+-rw-r--r--. 1 root root 94 4月  11 21:07 Cloudera-manager.repo
+[root@elephant yum.repos.d]# yum clean all; yum makecache</code></pre>
+
+<p><img src="/Users/diggzhang/code/big_data_on_my_way/exam_week1/imgs/qa03_yum_makecache.png" alt=""></p>
+
+<p>(6) 从节点中，下载一个主节点有的软件包</p>
+
+<pre><code class="language-shell">[root@monkey yum.repos.d]# yum install cloudera-manager-agent</code></pre>
+
+<p><img src="/Users/diggzhang/code/big_data_on_my_way/exam_week1/imgs/qa03_yum_install.png" alt=""></p>
+
+<h2 id="toc_4">Q4. 学习搭建时间服务器 NTP 的目的是什么？</h2>
+
+<p>单个节点默认是从本地物理时钟时间读取时间信息（<code>BIOS</code>时间），与标准时间有一定时间差距，是不准的。当希望校对时间获取最标准时间，应该从网络同步获取<strong>标准时间</strong>，但即使从网络同步也需要预想到网络传输消耗的时间。</p>
+
+<p>承上所述，多个节点在集群内工作时，是不一定能保证每台都是标准时间，即使都从网络获取标准时间，我们也不一定能保证各个节点的网络环境稳定。 如果希望多个节点之间能保证时间同步，那么这个时候的解决办法就是，让集群中多个节点从某个特定的节点获取时间，保证整个集群的时间同步。</p>
+
+<p>作为NTP服务器的节点，负责统一所有节点时间，保障集群节点之间的协作不会受到时间不统一问题的影响。</p>
+
+<h2 id="toc_5">Q5. 学习搭建安装服务器的目的是什么？</h2>
+
+<ol>
+<li>整个CDH安装所需的包太多，并不适合直接网络传输。搭建安装服务器，有利于加快构建集群的效率，排除网络的干扰因素。</li>
+<li>解决包依赖问题。每个软件包依赖繁多，使用<code>yum</code>解决依赖的问题。</li>
+</ol>
+
+<h2 id="toc_6">Q6.  Linux 文件系统管理数据的思路是什么？我们学习这个知识点的目的是什么？</h2>
+
+<ol>
+<li><p>Linux文件系统，以ext系列为例，以inode为准存储，文件系统分为多块，由superblock为首，然后跟着inode节点位信息，存储inodetable信息，然后跟着各级间接指针，指向文件块。</p></li>
+<li><p>大数据存储技术构建于Linux文件系统之上，设计思路也与此一脉相承。了解<code>Linux</code>文件系统的设计思路，有利于了解大数据存储文件系统的设计思路。</p></li>
+</ol>
+
+<h2 id="toc_7">Q7. 利用dd 创建1M文件testdisk，并利用操作系统格式化的命令将testdisk 格式化成ext2文件系统，利用文件系统相关命令，找到inode count 信息（整型数字）</h2>
+
+<p>(1) 使用dd创建1M的<code>testdisk</code>
+<code>shell
+[root@monkey tmp]# dd if=/dev/zero of=./testdisk count=256 bs=4
+记录了256+0 的读入
+记录了256+0 的写出
+1024字节(1.0 kB)已复制，0.000502306 秒，2.0 MB/秒
+[root@monkey tmp]#
+[root@monkey tmp]# ll ./testdisk
+-rw-r--r--. 1 root root 1024 4月  11 21:29 ./testdisk
+</code></p>
+
+<p>(2) 使用<code>mke2fs</code>将<code>testdisk</code>格式化为<code>ext2</code>文件系统</p>
+
+<pre><code class="language-shell">[root@monkey tmp]# mke2fs ./testdisk
+mke2fs 1.41.12 (17-May-2010)
+./testdisk is not a block special device.
+无论如何也要继续? (y,n) y
+mke2fs: inode_size (128) * inodes_count (0) too big for a
+    filesystem with 0 blocks, specify higher inode_ratio (-i)
+    or lower inode count (-N).</code></pre>
+
+<p><img src="/Users/diggzhang/code/big_data_on_my_way/exam_week1/imgs/qa07_testdisk.png" alt=""></p>
+
+<p>(3) 读取<code>inode count</code>信息</p>
+
+<pre><code class="language-shell">[root@elephant tmp]# tune2fs -l ./testfile | grep count
+Inode count:              128
+Block count:              1024
+Reserved block count:     51
+Mount count:              0
+Maximum mount count:      35</code></pre>
+
+<p><img src="/Users/diggzhang/code/big_data_on_my_way/exam_week1/imgs/qa07_all.png" alt=""></p>
+
+
+</body>
+
+</html>
